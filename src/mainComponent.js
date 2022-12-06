@@ -41,7 +41,7 @@ class Main extends Component {
     return (
       <div>
         <Header />
-        <Menu
+        {/* <Menu
           dishes={this.state.dishes}
           onClick={(dishId) => this.onDishSelect(dishId)}
         />
@@ -51,15 +51,16 @@ class Main extends Component {
               (dish) => dish.id === this.state.selectedDish
             )[0]
           }
-        />
-        <Footer />
-        <Routes>
-          <Route path='/home' element={<HomePage/>} />
-          <Route exact path='/menu' element={() => <Menu dishes={this.state.dishes} />} />
+        /> */}
+         <Routes>
+         <Route exact path='/' element={<Menu dishes={this.state.dishes} />} />
+          <Route path='/home' element={<HomePage props={this.state}/>} />
+          <Route exact path='/menu' element={<Menu dishes={this.state.dishes} />} />
           <Route exact path='/contactus' element={<Contact />} />
           <Route path='/menu/:dishId' element={<DishWithId />} />
-          {/* <Navigate to="/home" /> */}
         </Routes>
+        <Footer />
+       
       </div>
     );
   }
